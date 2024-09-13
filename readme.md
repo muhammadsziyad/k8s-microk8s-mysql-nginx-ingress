@@ -6,11 +6,9 @@ MicroK8s project with a web application from Docker Hub and a MySQL database, us
 - Kubernetes CLI (kubectl) installed
 - MicroK8s add-ons enabled (microk8s enable dns ingress storage)
 
-<<<<<<< HEAD
 ## Step 1: Create a Storage Class for Local Storage
 =======
 Step 1: Create a Storage Class for Local Storage
->>>>>>> e6f52bf6f7f91b93f8cb7550570841a3c11b741c
 Create a storage class for persistent storage in MicroK8s:
 
 ```yaml
@@ -29,11 +27,9 @@ Apply the StorageClass:
 kubectl apply -f storage-class.yaml
 ```
 
-<<<<<<< HEAD
 ## Step 2: Create Persistent Volume and Claim for MySQL
 =======
 Step 2: Create Persistent Volume and Claim for MySQL
->>>>>>> e6f52bf6f7f91b93f8cb7550570841a3c11b741c
 We will create a persistent volume (PV) and persistent volume claim (PVC) for the MySQL database using local storage.
 
 ```yaml
@@ -75,11 +71,9 @@ kubectl apply -f mysql-pvc.yaml
 ```
 
 
-<<<<<<< HEAD
 ## Step 3: Create ConfigMap and Secret for MySQL
 =======
 Step 3: Create ConfigMap and Secret for MySQL
->>>>>>> e6f52bf6f7f91b93f8cb7550570841a3c11b741c
 Create a ConfigMap for MySQL configuration and a Secret for sensitive information like MySQL root password.
 
 ```yaml
@@ -112,11 +106,9 @@ kubectl apply -f mysql-configmap.yaml
 kubectl apply -f mysql-secret.yaml
 ```
 
-<<<<<<< HEAD
 ## Step 4: Deploy MySQL Database
 =======
 Step 4: Deploy MySQL Database
->>>>>>> e6f52bf6f7f91b93f8cb7550570841a3c11b741c
 Now we will deploy a MySQL instance that uses the ConfigMap, Secret, and PVC.
 
 ```yaml
@@ -178,11 +170,9 @@ Apply the MySQL Deployment:
 kubectl apply -f mysql-deployment.yaml
 ```
 
-<<<<<<< HEAD
 ## Step 5: Deploy the Web Application
 =======
 Step 5: Deploy the Web Application
->>>>>>> e6f52bf6f7f91b93f8cb7550570841a3c11b741c
 Use any Docker image from Docker Hub for the web application. In this example, we'll use nginx as a placeholder.
 
 ```yaml
@@ -215,11 +205,9 @@ kubectl apply -f webapp-deployment.yaml
 ```
 
 
-<<<<<<< HEAD
 ## Step 6: Create Services for MySQL and Web App
 =======
 Step 6: Create Services for MySQL and Web App
->>>>>>> e6f52bf6f7f91b93f8cb7550570841a3c11b741c
 Expose both the MySQL database and the web application using services.
 
 ```yaml
@@ -255,11 +243,9 @@ kubectl apply -f mysql-service.yaml
 kubectl apply -f webapp-service.yaml
 ```
 
-<<<<<<< HEAD
 ## Step 7: Create an Ingress Resource
 =======
 Step 7: Create an Ingress Resource
->>>>>>> e6f52bf6f7f91b93f8cb7550570841a3c11b741c
 We’ll create an Ingress to route external traffic to the web application via the domain vps.subdomain.id.
 
 ```yaml
@@ -291,11 +277,9 @@ Apply the Ingress:
 kubectl apply -f ingress.yaml
 ```
 
-<<<<<<< HEAD
 ## Step 8: Check the Ingress and Access the Web Application
 =======
 Step 8: Check the Ingress and Access the Web Application
->>>>>>> e6f52bf6f7f91b93f8cb7550570841a3c11b741c
 To verify the Ingress, use the following command:
 
 ```bash
@@ -305,10 +289,8 @@ kubectl get ingress
 
 Make sure that your domain (vps.subdomain.id) points to the external IP of your Kubernetes cluster. You can now access the web application through the domain http://vps.subdomain.id.
 
-<<<<<<< HEAD
 ## Final Notes
 =======
 Final Notes
->>>>>>> e6f52bf6f7f91b93f8cb7550570841a3c11b741c
 - You can modify the MySQL image version or web application image as needed.
 - Ensure your DNS settings point vps.subdomain.id to the correct external IP of the MicroK8s cluster.
