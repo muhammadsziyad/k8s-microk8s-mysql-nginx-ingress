@@ -1,0 +1,9 @@
+# mysql-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config
+data:
+  MYSQL_DATABASE: "mydatabase"
+  MYSQL_USER: "myuser"
+  MYSQL_PASSWORD: "mypassword"
