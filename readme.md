@@ -1,21 +1,23 @@
 MicroK8s project with a web application from Docker Hub and a MySQL database, using local storage, ConfigMap, SecretMap, persistent storage, volume claim, and a storage class. We will also configure Ingress for external access using the domain vps.subdomain.id.
 
 ```mermaid
-graph TD
-    subgraph MicroK8s Cluster
-        A[Web App] --> B[NGINX Ingress]
-        B --> C[MySQL Database]
-        B --> E[ConfigMap & SecretMap]
+flowchart LR
+    A[MicroK8s] -->|Manages| B[Kubernetes Cluster]
+    B -->|Deploys| C[MySQL]
+    B -->|Deploys| D[Nginx Ingress Controller]
+    B -->|Deploys| E[Web Application]
+    E -->|Accesses| C
+    D -->|Exposes| E
+    D -->|Handles| F[External Requests]
+
+    subgraph Kubernetes Deployment
+        B
+        C
+        D
+        E
     end
-    D[Client Access via vps.subdomain.id] --> B
-    subgraph Storage
-        F[PersistentVolumeClaim] --> C
-        G[Local Storage]
-    end
-    
-    F --> G
-    classDef storage fill:#f9f,stroke:#333,stroke-width:2px;
-    class F,G storage;
+
+
 ```
 
 # Prerequisites
