@@ -1,3 +1,4 @@
+# Kubernetes MySQL Nginx
 MicroK8s project with a web application from Docker Hub and a MySQL database, using local storage, ConfigMap, SecretMap, persistent storage, volume claim, and a storage class. We will also configure Ingress for external access using the domain vps.subdomain.id.
 
 ```mermaid
